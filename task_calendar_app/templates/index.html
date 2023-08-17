@@ -2,27 +2,32 @@
 <html>
 <head>
     <title>Task Calendar App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Task Calendar</h1>
-    <form action="/add_task" method="post">
-        <label for="title">Task Title:</label>
-        <input type="text" id="title" name="title" required><br><br>
-        
-        <label for="date">Task Date:</label>
-        <input type="date" id="date" name="date" required><br><br>
+    <div class="container">
+        <h1>Task Calendar</h1>
+        <form action="/add_task" method="post">
+            <label for="title">Task Title:</label>
+            <input type="text" id="title" name="title" required><br><br>
 
-        <label for="alert">Set Alert:</label>
-        <input type="checkbox" id="alert" name="alert"><br><br>
+            <label for="date">Task Date:</label>
+            <input type="date" id="date" name="date" required><br><br>
 
-        <input type="submit" value="Add Task">
-    </form>
-    
-    <h2>Upcoming Tasks</h2>
-    <ul>
-        {% for task in tasks %}
-            <li>{{ task.title }} - {{ task.date }} {% if task.alert %}(Alert){% endif %}</li>
-        {% endfor %}
-    </ul>
+            <label for="alert">Set Alert:</label>
+            <input type="checkbox" id="alert" name="alert"><br><br>
+
+            <input type="submit" value="Add Task">
+        </form>
+
+        <h2>Upcoming Tasks</h2>
+        <ul>
+            {% for task in tasks %}
+                <li>{{ task.title }} - {{ task.date }} {% if task.alert %}(Alert){% endif %}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
