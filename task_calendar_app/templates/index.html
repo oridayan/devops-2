@@ -6,6 +6,9 @@
 </head>
 <body>
     <div class="container">
+        <div class="top-bar">
+            <a href="{{ url_for('login') }}" class="login-button">Log In</a>
+        </div>
         <h1>Task Calendar</h1>
         <form action="/add_task" method="post">
             <label for="title">Task Title:</label>

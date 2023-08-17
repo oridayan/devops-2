@@ -12,4 +12,5 @@ from task_calendar_app import models
 
 # Create the database tables within the application context
 with app.app_context():
+    db.drop_all()
     db.create_all()
